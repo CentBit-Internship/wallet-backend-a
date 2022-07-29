@@ -1,50 +1,55 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.postRequest = exports.getRequest = void 0;
-// import { v4 as uuidv4 } from "uuid";
 const getRequest = (req, res) => {
     res.send("Build a simple USSD-BASED service that allows a user to update his name via USSD.");
 };
 exports.getRequest = getRequest;
 const postRequest = (req, res) => {
     let { sessionId, serviceCode, phoneNumber, text } = req.body;
-    if (text == '') {
-        let response = `CON What do you want to check
-        1. My Account
-        2. My Phone Number`;
+    if (text == "") {
+        console.log(req.body);
+        let response = `CON Enter your fullname`;
         res.send(response);
     }
-    else if (text == '1') {
+    else if (text !== "") {
+        let response = `CON What do you want to check
+      1. My Account
+      2. My Phone Number`;
+        res.send(response);
+    }
+    else if (text == "1") {
         let response = `CON Choose account information you want to view
         1. Account Name
         2. Account Number
         3. Account Balance`;
         res.send(response);
     }
-    else if (text == '2') {
+    else if (text == "2") {
         let response = `END Your phone number is ${phoneNumber}`;
         res.send(response);
     }
-    else if (text == '1*1') {
-        let accountName = 'Steve Chude';
+    else if (text == "1*1") {
+        let accountName = "Steve Chude";
         let response = `END Your account name is ${accountName}`;
         res.send(response);
     }
-    else if (text == '1*2') {
+    else if (text == "1*2") {
         let accountNumber = generateAccountNumber();
         let response = `END Your account number is ${accountNumber}`;
         res.send(response);
     }
-    else if (text == '1*3') {
+    else if (text == "1*3") {
         let balance = "NGN 10,000";
         let response = `END Your account balance is ${balance}`;
         res.send(response);
     }
     else {
-        res.status(400).send('BAD REQUEST');
+        res.status(400).send("BAD REQUEST");
     }
 };
 exports.postRequest = postRequest;
 function generateAccountNumber() {
     return Math.floor(1000000000 + Math.random() * 9999999999);
 }
+// https://fathomless-atoll-54584.herokuapp.com/ussd
