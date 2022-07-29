@@ -9,6 +9,7 @@ export const getRequest = (req: Request, res: Response) => {
 };
 
 export const postRequest = (req: Request, res: Response) => {
+  
   let { sessionId, serviceCode, phoneNumber, text } = req.body;
 
   if (text == "") {
