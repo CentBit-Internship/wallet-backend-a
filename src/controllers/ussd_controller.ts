@@ -12,10 +12,6 @@ export const postRequest = (req: Request, res: Response) => {
   let { sessionId, serviceCode, phoneNumber, text } = req.body;
 
   if (text == "") {
-      console.log(req.body)
-    let response = `CON Enter your fullname`;
-    res.send(response);
-  } else if (text !== "") {
     let response = `CON What do you want to check
       1. My Account
       2. My Phone Number`;
@@ -50,4 +46,4 @@ function generateAccountNumber() {
   return Math.floor(1000000000 + Math.random() * 9999999999);
 }
 
-// https://fathomless-atoll-54584.herokuapp.com/ussd
+// https://fathomless-atoll-54584.herokuapp.com/
