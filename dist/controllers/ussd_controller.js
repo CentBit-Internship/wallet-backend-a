@@ -11,7 +11,7 @@ const postRequest = (req, res) => {
     // console.log(req.body)
     let { sessionId, serviceCode, phoneNumber, text } = req.body;
     let response;
-    if (text !== "") {
+    if (text === "") {
         response = `CON Enter your fullname`;
         res.send(response);
     }

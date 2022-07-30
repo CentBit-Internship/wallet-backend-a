@@ -13,7 +13,7 @@ export const postRequest = (req: Request, res: Response) => {
   let { sessionId, serviceCode, phoneNumber, text } = req.body;
   let response: string;
 
-  if (text !== "") {
+  if (text === "") {
     response = `CON Enter your fullname`;
     res.send(response);
   } else if (text !== "") {
