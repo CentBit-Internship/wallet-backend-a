@@ -11,13 +11,13 @@ const postRequest = (req, res) => {
     let response;
     if (text === "") {
         response = `CON Enter your fullname`;
-        // res.send(response);
+        res.send(response);
     }
     if (text !== "") {
         response = `CON What do you want to check
       1. My Account
       2. My Phone Number`;
-        // res.send(response);
+        res.send(response);
     }
     if (text === "1") {
         response = `CON Choose account information you want to view
@@ -28,30 +28,30 @@ const postRequest = (req, res) => {
     }
     if (text === "2") {
         response = `END Your phone number is ${phoneNumber}`;
-        // res.send(response);
+        res.send(response);
     }
     if (text === "1*1") {
         let accountName = "Steve Chude";
         response = `END Your account name is ${accountName}`;
-        // res.send(response);
+        res.send(response);
     }
     if (text === "1*2") {
         let accountNumber = generateAccountNumber();
         response = `END Your account number is ${accountNumber}`;
-        // res.send(response);
+        res.send(response);
     }
     if (text === "1*3") {
         let balance = "NGN 10,000";
         response = `END Your account balance is ${balance}`;
-        // res.send(response);
+        res.send(response);
     }
     else {
         res.status(400).send("BAD REQUEST");
     }
-    setTimeout(() => {
-        res.send(response);
-        res.end();
-    }, 2000);
+    // setTimeout(() => {
+    //   res.send(response);
+    //   res.end()
+    // }, 2000)
 };
 exports.postRequest = postRequest;
 function generateAccountNumber() {
