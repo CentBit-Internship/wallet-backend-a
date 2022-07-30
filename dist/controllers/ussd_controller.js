@@ -21,7 +21,7 @@ const postRequest = (req, res) => {
       2. My Phone Number`;
         res.send(response);
     }
-    else if (text === "1") {
+    else if (text === 1) {
         response = `CON Choose account information you want to view
         1. Account Name
         2. Account Number
