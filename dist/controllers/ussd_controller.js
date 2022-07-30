@@ -15,7 +15,7 @@ const postRequest = (req, res) => {
         response = `CON Enter your fullname`;
         res.send(response);
     }
-    else if (text !== "") {
+    else if (text === "") {
         response = `CON What do you want to check
       1. My Account
       2. My Phone Number`;
