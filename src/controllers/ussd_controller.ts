@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-// import { v4 as uuidv4 } from "uuid";
 // import Ussd from '../model/ussd_schema';
+
 
 export const getRequest = (req: Request, res: Response) => {
   res.send(
@@ -8,20 +8,24 @@ export const getRequest = (req: Request, res: Response) => {
   );
 };
 
-export const postRequest = (req: Request, res: Response) => {
-  // console.log(req.body)
-  let { sessionId, serviceCode, phoneNumber, text } = req.body;
-  let response: string = '';
+export const postRequest = ( req: Request, res: Response) => {
 
-  if (text === "") {
+  let { sessionId, serviceCode, phoneNumber } = req.body;
+  let text: string = req.body;
+
+  console.log(text)
+  let response: string = "";
+
+  if (!text) {
     response = `CON Enter your fullname`;
     res.send(response);
-  } else if (text !== "") {
+  }
+  if (text) {
     response = `CON What do you want to check
       1. My Account
       2. My Phone Number`;
     res.send(response);
-  } else if (text === 1) {
+  } else if (text === "1") {
     response = `CON Choose account information you want to view
         1. Account Name
         2. Account Number
@@ -56,4 +60,4 @@ function generateAccountNumber() {
   return Math.floor(1000000000 + Math.random() * 9999999999);
 }
 
-// https://fathomless-atoll-54584.herokuapp.com/ussd
+// https://fathomless-atoll-54584.herokuapp.com

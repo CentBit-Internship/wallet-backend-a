@@ -1,4 +1,5 @@
 import express from 'express';
+import logger from 'morgan';
 import ussdRoute from './routes/router';
 import connectDB from './db_config/db';
 
@@ -7,6 +8,7 @@ require("dotenv").config();
 
 const app = express()
 
+app.use(logger('dev'));
 app.use(express.json());
 // app.use(express.urlencoded({extended: true}));
 

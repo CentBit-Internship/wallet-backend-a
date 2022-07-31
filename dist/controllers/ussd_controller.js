@@ -1,27 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.postRequest = exports.getRequest = void 0;
-// import { v4 as uuidv4 } from "uuid";
 // import Ussd from '../model/ussd_schema';
 const getRequest = (req, res) => {
     res.send("Build a simple USSD-BASED service that allows a user to update his name via USSD.");
 };
 exports.getRequest = getRequest;
 const postRequest = (req, res) => {
-    // console.log(req.body)
-    let { sessionId, serviceCode, phoneNumber, text } = req.body;
-    let response = '';
-    if (text === "") {
+    let { sessionId, serviceCode, phoneNumber } = req.body;
+    let text = req.body;
+    console.log(text);
+    let response = "";
+    if (!text) {
         response = `CON Enter your fullname`;
         res.send(response);
     }
-    else if (text !== "") {
+    if (text) {
         response = `CON What do you want to check
       1. My Account
       2. My Phone Number`;
         res.send(response);
     }
-    else if (text === 1) {
+    else if (text === "1") {
         response = `CON Choose account information you want to view
         1. Account Name
         2. Account Number
@@ -59,4 +59,4 @@ exports.postRequest = postRequest;
 function generateAccountNumber() {
     return Math.floor(1000000000 + Math.random() * 9999999999);
 }
-// https://fathomless-atoll-54584.herokuapp.com/ussd
+// https://fathomless-atoll-54584.herokuapp.com
