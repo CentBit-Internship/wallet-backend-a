@@ -50,10 +50,6 @@ const postRequest = (req, res) => {
     else {
         res.status(400).send("BAD REQUEST");
     }
-    // setTimeout(() => {
-    //   res.send(response);
-    //   res.end()
-    // }, 2000)
 };
 exports.postRequest = postRequest;
 function generateAccountNumber() {

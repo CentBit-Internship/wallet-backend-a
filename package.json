@@ -4,8 +4,8 @@
   "description": "A simple USSD service integrated with MTN MOMO",
   "main": "src/app.ts",
   "scripts": {
-    "build": "tsc --build",
-    "start": "ts-node src/app.ts"
+    "build": "tsc --watch",
+    "start": "nodemon src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^18.6.1",
     "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.19",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4",
     "uuid": "^8.3.2"
