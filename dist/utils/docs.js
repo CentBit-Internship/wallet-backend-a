@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const ussd_swagger_1 = __importDefault(require("../routes/ussd.swagger"));
 const swaggerDocumentation = {
     openapi: "3.0.0",
     info: {
@@ -23,26 +27,6 @@ const swaggerDocumentation = {
             description: "A simple USSD app.",
         },
     ],
-    paths: {
-        "/": {
-            get: {
-                tags: ["Ussd-check"],
-                description: "Displays a text about the USSD-BASED service",
-                responses: {
-                    200: {
-                        description: "OK",
-                        content: {
-                            "text/html": {
-                                schema: {
-                                    type: "string",
-                                    example: "Build a simple USSD-BASED service that allows a user to update his name via USSD.",
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    },
+    paths: Object.assign({}, ussd_swagger_1.default),
 };
 exports.default = swaggerDocumentation;

@@ -1,3 +1,5 @@
+import ussdRouteDocs from "../routes/ussd.swagger";
+
 const swaggerDocumentation = {
   openapi: "3.0.0",
   info: {
@@ -23,26 +25,7 @@ const swaggerDocumentation = {
     },
   ],
   paths: {
-    "/": {
-      get: {
-        tags: ["Ussd-check"],
-        description: "Displays a text about the USSD-BASED service",
-        responses: {
-          200: {
-            description: "OK",
-            content: {
-              "text/html": {
-                schema: {
-                  type: "string",
-                  example:
-                    "Build a simple USSD-BASED service that allows a user to update his name via USSD.",
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    ...ussdRouteDocs
   },
 };
 
