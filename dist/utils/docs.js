@@ -13,7 +13,7 @@ const swaggerDocumentation = {
     },
     servers: [
         {
-            url: "https://fathomless-atoll-54584.herokuapp.com",
+            url: "https://steve-ussd-app.herokuapp.com/",
             description: "deployed production api",
         },
         {
