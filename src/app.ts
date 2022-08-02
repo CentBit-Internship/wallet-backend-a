@@ -1,5 +1,6 @@
 import express from "express";
 import logger from "morgan";
+import cors from 'cors';
 import ussdRoute from "./routes/router";
 import connectDB from "./db_config/db";
 import swaggerDoc from "swagger-ui-express";
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(cors());
 // app.use(express.urlencoded({extended: true}));
 
 app.use("/docs", swaggerDoc.serve);
