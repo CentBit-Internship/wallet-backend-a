@@ -4,7 +4,7 @@
   "description": "A simple USSD service integrated with MTN MOMO",
   "main": "src/app.ts",
   "scripts": {
-    "build": "tsc --watch",
+    "build": "tsc --build",
     "start": "ts-node src/app.ts"
   },
   "repository": {
