@@ -25,7 +25,7 @@ app.use("/", ussdRoute);
 const port = process.env.PORT || 3004;
 
 // DB Connection
-const db_url = `mongodb+srv://stevechude:houseofgrace%401@rest-api.kpvocbv.mongodb.net/?retryWrites=true&w=majority`;
+const db_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_NAME}.kpvocbv.mongodb.net/?retryWrites=true&w=majority`;
 connectDB(db_url);
 
 app.listen(port, () => {

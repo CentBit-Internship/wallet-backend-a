@@ -20,12 +20,7 @@ export const postRequest = ( req: Request, res: Response) => {
     response = `CON Enter your fullname`;
     res.send(response);
   }
-  if (text) {
-    response = `CON What do you want to check
-      1. My Account
-      2. My Phone Number`;
-    res.send(response);
-  } else if (text === "1") {
+  if (text === "1") {
     response = `CON Choose account information you want to view
         1. Account Name
         2. Account Number
@@ -47,7 +42,10 @@ export const postRequest = ( req: Request, res: Response) => {
     response = `END Your account balance is ${balance}`;
     res.send(response);
   } else {
-    res.status(400).send("BAD REQUEST");
+    response = `CON What do you want to check
+       1. My Account
+       2. My Phone Number`;
+        res.send(response);
   }
 };
 
@@ -55,4 +53,11 @@ function generateAccountNumber() {
   return Math.floor(1000000000 + Math.random() * 9999999999);
 }
 
-// https://fathomless-atoll-54584.herokuapp.com
+// https://steve-ussd-app.herokuapp.com/
+
+// if (text) {
+//     response = `CON What do you want to check
+//       1. My Account
+//       2. My Phone Number`;
+//     res.send(response);
+//   } else 
