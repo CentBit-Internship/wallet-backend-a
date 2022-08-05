@@ -22,7 +22,7 @@ app.use("/docs", swagger_ui_express_1.default.setup(docs_1.default));
 app.use("/", router_1.default);
 const port = process.env.PORT || 3004;
 // DB Connection
-const db_url = `mongodb+srv://stevechude:houseofgrace%401@rest-api.kpvocbv.mongodb.net/?retryWrites=true&w=majority`;
+const db_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_NAME}.kpvocbv.mongodb.net/?retryWrites=true&w=majority`;
 (0, db_1.default)(db_url);
 app.listen(port, () => {
     console.log(`app is running on port ${port}`);
