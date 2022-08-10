@@ -9,7 +9,7 @@ export const getRequest = (req: Request, res: Response) => {
 };
 
 export const postRequest = ( req: Request, res: Response) => {
-  // let { sessionId, serviceCode, phoneNumber } = req.body; ${phoneNumber}
+  let { sessionId, serviceCode, phoneNumber } = req.body;
   let { text } = req.body;
 
   console.log(text);
@@ -24,7 +24,7 @@ export const postRequest = ( req: Request, res: Response) => {
       res.send(response);
       break;
     case "2":
-      response = `END Your phone number is 08089147905`;
+      response = `END Your phone number is ${phoneNumber}`;
       res.send(response);
       break;
     case "1*1":
